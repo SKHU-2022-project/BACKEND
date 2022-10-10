@@ -19,8 +19,8 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
-	path('form/', views.form),
-    path('result/', views.result),
-    
+    path('', views.index, name='index'),
+	path('form/', views.form, name='form'),
+    path('submit/', views.submit, name='submit'),
+    path('result/<int:major_id>/', views.result, name='result'),
 ]
