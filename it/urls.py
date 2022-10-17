@@ -13,4 +13,6 @@ urlpatterns = [
     path('it/chtest/', views.itChTest, name='itChTest'),
     path('it/chsubmit/', views.itChSubmit, name='itChSubmit'),
     path('it/chresult/<int:major_id>/', views.itChResult, name='itChResult'),
+    
+    path('it/board/', views.itboard, name='itBoard'),
 ]

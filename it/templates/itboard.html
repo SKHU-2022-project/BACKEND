@@ -1,0 +1,15 @@
+<h1>Write</h1>
+<hr>
+<h1>Read</h1>
+<hr>
+    {% for writings in writings.all %}
+            <h3>{{ writings.title}}</h3>
+        <i><p>{{ writings.date }}</p></i>
+        <b><p>{{ writings.body}}</p></b>
+        {%endfor%}
+<form method="POST" >
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+<br>

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.utils import timezone
+from .forms import BoardForm
 from .models import IT, IT_ch, IT_eng, ITAnswer, ITAnswer_ch, ITAnswer_eng
-from .models import ITQuestion, ITQuestion_ch, ITQuestion_eng
+from .models import ITQuestion, ITQuestion_ch, ITQuestion_eng, ITBoard
 # Create your views here.
 def itTest(request):
     questions =ITQuestion.objects.all()
@@ -98,3 +100,17 @@ def itChSubmit(request):
 def itChResult(request, major_id):
     major = IT_ch.objects.get(pk=major_id)
     return render(request, 'itchresult.html', {'major':major})
+
+#폼 쓰지 않음
+def itboard(request):
+    writings = ITBoard.objects.all()
+    form = BoardForm()
+    if request.method == 'POST':
+        form = BoardForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.pub_date = timezone.now()
+            form.save()
+            return redirect('itboard')
+    else:
+        return render(request, 'itboard.html', {'form':form, 'writings':writings})

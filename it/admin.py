@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import IT, ITAnswer, ITQuestion
+from .models import IT, ITAnswer, ITQuestion, ITBoard
 from .models import IT_eng, ITAnswer_eng, ITQuestion_eng
 from .models import IT_ch, ITAnswer_ch, ITQuestion_ch
 
@@ -15,3 +15,5 @@ admin.site.register(ITQuestion_eng)
 admin.site.register(IT_ch)
 admin.site.register(ITQuestion_ch)
 admin.site.register(ITAnswer_ch)
+
+admin.site.register(ITBoard)

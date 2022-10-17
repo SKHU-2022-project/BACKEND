@@ -66,3 +66,11 @@ class ITAnswer_ch(models.Model):
     
     def __str__(self):
         return self.answer
+    
+class ITBoard(models.Model):
+    writer = models.CharField(max_length=20)
+    date = models.DateTimeField('data published')
+    body = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.writer
