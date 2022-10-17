@@ -18,8 +18,8 @@ def itSubmit(request):
         counter[major_id] += 1
         
     # 최고점 개발 유형
-    
-    best_major_id = max(range(1, K+1), key=lambda id : counter[id])
+    max_value = max(counter)
+    best_major_id = counter.index(max_value)
     best_major = IT.objects.get(pk=best_major_id)
     best_major.count += 1
     best_major.save()
@@ -52,8 +52,8 @@ def itEngSubmit(request):
         counter[major_id] += 1
         
     # 최고점 개발 유형
-    
-    best_major_id = max(range(1, K+1), key=lambda id : counter[id])
+    max_value = max(counter)
+    best_major_id = counter.index(max_value)
     best_major = IT_eng.objects.get(pk=best_major_id)
     best_major.count += 1
     best_major.save()
