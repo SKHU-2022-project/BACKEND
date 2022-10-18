@@ -1,5 +1,5 @@
 from django.urls import path
-from humanity import views
+from society import views
 
 urlpatterns = [
 	path('society/test/', views.societyTest, name='societyTest'),

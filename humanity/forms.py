@@ -1,7 +1,7 @@
 from django import forms
-from .models import ITBoard
+from .models import HumanityBoard
 
 class BoardForm(forms.ModelForm):
     class Meta:
-        model = ITBoard
+        model = HumanityBoard
         fields = ['writer', 'body']

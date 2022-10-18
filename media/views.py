@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from .forms import BoardForm
-from .models import MediaContent, MediaContent_CN, MediaContent_ENG, MediaContentBoard, MediaContentQuestion, HumanityAnswer
+from .models import MediaContent, MediaContent_CN, MediaContent_ENG, MediaContentBoard, MediaContentQuestion, MediaContentAnswer
 from .models import MediaContentAnswer_ENG, MediaContentQuestion_ENG, MediaContentQuestion_CN, MediaContentAnswer_CN
 # Create your views here.
 def mediacontentTest(request):

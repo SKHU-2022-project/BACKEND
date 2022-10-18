@@ -9,7 +9,7 @@ def humanityTest(request):
     
     return render(request, 'test.html', {'questions':questions})
 
-def itSubmit(request):
+def humanitySubmit(request):
     N = HumanityQuestion.objects.count()
     K = Humanity.objects.count()
 
@@ -37,7 +37,7 @@ def humanityResult(request, major_id):
     return render(request, 'result.html', {'major':major})
 
 
-def humaintyEngTest(request):
+def humanityEngTest(request):
     questions =HumanityQuestion_ENG.objects.all()
     
     return render(request, 'engtest.html', {'questions':questions})
@@ -101,7 +101,7 @@ def humanityCnResult(request, major_id):
     major = Humanity_CN.objects.get(pk=major_id)
     return render(request, 'cnresult.html', {'major':major})
 
-def humanityboard(request):
+def humanityBoard(request):
     writings = HumanityBoard.objects.all()
     form = BoardForm()
     if request.method == 'POST':
