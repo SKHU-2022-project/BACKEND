@@ -3,7 +3,7 @@
 <h1>Read</h1>
 <hr>
     {% for writings in writings.all %}
-            <h3>{{ writings.title}}</h3>
+            <h3>{{ writings.writer}}</h3>
         <i><p>{{ writings.date }}</p></i>
         <b><p>{{ writings.body}}</p></b>
         {%endfor%}
@@ -12,4 +12,5 @@
     <table>
         {{form.as_table}}
     </table>
+    <button type='submit'>제출</button>
 <br>

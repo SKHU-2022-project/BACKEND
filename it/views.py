@@ -101,7 +101,6 @@ def itChResult(request, major_id):
     major = IT_ch.objects.get(pk=major_id)
     return render(request, 'itchresult.html', {'major':major})
 
-#폼 쓰지 않음
 def itboard(request):
     writings = ITBoard.objects.all()
     form = BoardForm()
@@ -109,8 +108,8 @@ def itboard(request):
         form = BoardForm(request.POST)
         if form.is_valid():
             form = form.save(commit=False)
-            form.pub_date = timezone.now()
+            form.date = timezone.now()
             form.save()
-            return redirect('itboard')
+            return redirect('itBoard')
     else:
         return render(request, 'itboard.html', {'form':form, 'writings':writings})

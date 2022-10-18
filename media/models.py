@@ -4,14 +4,11 @@ from django.db import models
 #미컨 model
 class MediaContent(models.Model):
     major = models.CharField(max_length=100)
-    count = models.IntegerField(default=0)
-    merit = models.CharField(max_length=255)
-    result = models.CharField(max_length=255)
     
     def __str__(self):
         return self.major
     
-class MediaContentsQuestion(models.Model):
+class MediaContentQuestion(models.Model):
     number = models.IntegerField(unique=True)
     question = models.CharField(max_length=255)
 
@@ -19,10 +16,62 @@ class MediaContentsQuestion(models.Model):
     def __str__(self):
         return f'{self.number}. {self.question}'
     
-class MediaContentsAnswer(models.Model):
+class MediaContentAnswer(models.Model):
     major = models.ForeignKey(MediaContent, on_delete=models.CASCADE)
-    question = models.ForeignKey(MediaContentsQuestion, on_delete=models.CASCADE)
+    question = models.ForeignKey(MediaContentQuestion, on_delete=models.CASCADE)
     answer = models.CharField(max_length=255)
     
     def __str__(self):
         return self.answer
+    
+#영어 model
+class MediaContent_ENG(models.Model):
+    major = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.major
+    
+class MediaContentQuestion_ENG(models.Model):
+    number = models.IntegerField(unique=True)
+    question = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return f'{self.number}. {self.question}'
+    
+class MediaContentAnswer_ENG(models.Model):
+    major = models.ForeignKey(MediaContent_ENG, on_delete=models.CASCADE)
+    question = models.ForeignKey(MediaContentQuestion, on_delete=models.CASCADE)
+    answer = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.answer
+
+#중국어 model
+class MediaContent_CN(models.Model):
+    major = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.major
+    
+class MediaContentQuestion_CN(models.Model):
+    number = models.IntegerField(unique=True)
+    question = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return f'{self.number}. {self.question}'
+    
+class MediaContentAnswer_CN(models.Model):
+    major = models.ForeignKey(MediaContent_CN, on_delete=models.CASCADE)
+    question = models.ForeignKey(MediaContentQuestion_CN, on_delete=models.CASCADE)
+    answer = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.answer
+    
+class MediaContentBoard(models.Model):
+    writer = models.CharField(max_length=20)
+    date = models.DateTimeField('data published')
+    body = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.writer
