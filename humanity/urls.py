@@ -13,6 +13,4 @@ urlpatterns = [
     path('humanity/chtest/', views.humanityCnTest, name='humanityCnTest'),
     path('humanity/chsubmit/', views.humanityCnSubmit, name='humanityCnSubmit'),
     path('humanity/chresult/<int:major_id>/', views.humanityCnResult, name='humanityCnResult'),
-    
-    path('humanity/board/', views.humanityBoard, name='humanityBoard'),
 ]

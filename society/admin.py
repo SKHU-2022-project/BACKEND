@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Society, SocietyAnswer, SocietyQuestion, SocietyBoard
+from .models import Society, SocietyAnswer, SocietyQuestion
 from .models import Society_ENG, SocietyAnswer_ENG, SocietyQuestion_ENG
 from .models import Society_CN, SocietyAnswer_CN, SocietyQuestion_CN
 
@@ -15,5 +15,3 @@ admin.site.register(SocietyQuestion_ENG)
 admin.site.register(Society_CN)
 admin.site.register(SocietyQuestion_CN)
 admin.site.register(SocietyAnswer_CN)
-
-admin.site.register(SocietyBoard)

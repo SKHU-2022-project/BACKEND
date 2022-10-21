@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .forms import BoardForm
-from .models import MediaContent, MediaContent_CN, MediaContent_ENG, MediaContentBoard, MediaContentQuestion, MediaContentAnswer
+from .models import MediaContent, MediaContent_CN, MediaContent_ENG, MediaContentQuestion, MediaContentAnswer
 from .models import MediaContentAnswer_ENG, MediaContentQuestion_ENG, MediaContentQuestion_CN, MediaContentAnswer_CN
 # Create your views here.
 def mediacontentTest(request):
@@ -101,15 +100,3 @@ def mediacontentCnResult(request, major_id):
     major = MediaContent_CN.objects.get(pk=major_id)
     return render(request, 'cnresult.html', {'major':major})
 
-def mediacontentBoard(request):
-    writings = MediaContentBoard.objects.all()
-    form = BoardForm()
-    if request.method == 'POST':
-        form = BoardForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.date = timezone.now()
-            form.save()
-            return redirect('mediacontentBoard')
-    else:
-        return render(request, 'mediacontentboard.html', {'form':form, 'writings':writings})

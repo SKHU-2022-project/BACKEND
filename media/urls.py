@@ -13,6 +13,4 @@ urlpatterns = [
     path('mediacontent/chtest/', views.mediacontentCnTest, name='mediacontentCnTest'),
     path('mediacontent/chsubmit/', views.mediacontentCnSubmit, name='mediacontentCnSubmit'),
     path('mediacontent/chresult/<int:major_id>/', views.mediacontentCnResult, name='mediacontentCnResult'),
-    
-    path('mediacontent/board/', views.mediacontentBoard, name='mediacontentBoard'),
 ]

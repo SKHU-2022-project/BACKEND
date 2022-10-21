@@ -13,6 +13,4 @@ urlpatterns = [
     path('society/chtest/', views.societyCnTest, name='societyCnTest'),
     path('society/chsubmit/', views.societyCnSubmit, name='societyCnSubmit'),
     path('society/chresult/<int:major_id>/', views.societyCnResult, name='societyCnResult'),
-    
-    path('society/board/', views.societyBoard, name='societyBoard'),
 ]

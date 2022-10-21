@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .forms import BoardForm
-from .models import Humanity, Humanity_CN, Humanity_ENG, HumanityBoard, HumanityQuestion, HumanityAnswer
+from .models import Humanity, Humanity_CN, Humanity_ENG, HumanityQuestion, HumanityAnswer
 from .models import HumanityAnswer_ENG, HumanityQuestion_ENG, HumanityQuestion_CN, HumanityAnswer_CN
 # Create your views here.
 def humanityTest(request):
@@ -101,15 +100,3 @@ def humanityCnResult(request, major_id):
     major = Humanity_CN.objects.get(pk=major_id)
     return render(request, 'cnresult.html', {'major':major})
 
-def humanityBoard(request):
-    writings = HumanityBoard.objects.all()
-    form = BoardForm()
-    if request.method == 'POST':
-        form = BoardForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.date = timezone.now()
-            form.save()
-            return redirect('itBoard')
-    else:
-        return render(request, 'humanityboard.html', {'form':form, 'writings':writings})

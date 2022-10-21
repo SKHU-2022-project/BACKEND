@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .forms import BoardForm
-from .models import Society, Society_CN, Society_ENG, SocietyBoard, SocietyQuestion, SocietyAnswer
+from .models import Society, Society_CN, Society_ENG, SocietyQuestion, SocietyAnswer
 from .models import SocietyAnswer_ENG, SocietyQuestion_ENG, SocietyQuestion_CN, SocietyAnswer_CN
 # Create your views here.
 def societyTest(request):
@@ -101,15 +100,3 @@ def societyCnResult(request, major_id):
     major = Society_CN.objects.get(pk=major_id)
     return render(request, 'cnresult.html', {'major':major})
 
-def societyBoard(request):
-    writings = SocietyBoard.objects.all()
-    form = BoardForm()
-    if request.method == 'POST':
-        form = BoardForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.date = timezone.now()
-            form.save()
-            return redirect('societyBoard')
-    else:
-        return render(request, 'societyBoard.html', {'form':form, 'writings':writings})

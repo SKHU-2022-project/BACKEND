@@ -66,11 +66,18 @@ class SocietyAnswer_CN(models.Model):
     
     def __str__(self):
         return self.answer
+
+class MediaContentRequirement(models.Model):
+    major = models.ForeignKey(Society, on_delete=models.CASCADE)
+    requirement = models.CharField(max_length=255)
+    ENGrequirement = models.CharField(max_length=255)
+    CNrequirement = models.CharField(max_length=255)
     
-class SocietyBoard(models.Model):
-    writer = models.CharField(max_length=20)
-    date = models.DateTimeField('data published')
-    body = models.CharField(max_length=255)
+class MediaContentLearning(models.Model):
+    major = models.ForeignKey(Society, on_delete=models.CASCADE)
+    learning = models.CharField(max_length=255)
+    ENGlearning = models.CharField(max_length=255)
+    CNlearning = models.CharField(max_length=255)
     
     def __str__(self):
-        return self.writer
+        return self.major
