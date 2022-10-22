@@ -1,5 +1,5 @@
 from django.contrib import admin
-from humanity.models import HumanityQuestion, Humanity, HumanityAnswer
+from humanity.models import HumanityQuestion, Humanity, HumanityAnswer, HumanityLearning, HumanityRequirement
 from .models import Humanity_ENG, Humanity_CN, HumanityAnswer_CN, HumanityAnswer_ENG, HumanityQuestion_CN, HumanityQuestion_ENG
 # Register your models here.
 admin.site.register(Humanity)
@@ -13,3 +13,6 @@ admin.site.register(HumanityAnswer_ENG)
 admin.site.register(Humanity_CN)
 admin.site.register(HumanityQuestion_CN)
 admin.site.register(HumanityAnswer_CN)
+
+admin.site.register(HumanityRequirement)
+admin.site.register(HumanityLearning)

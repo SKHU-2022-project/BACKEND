@@ -74,6 +74,9 @@ class ITRequirement(models.Model):
     ENGrequirement = models.CharField(max_length=255)
     CNrequirement = models.CharField(max_length=255)
     
+    def __str__(self):
+        return self.requirement
+    
 class ITLearning(models.Model):
     major = models.ForeignKey(IT, on_delete=models.CASCADE)
     learning = models.CharField(max_length=255)
@@ -81,4 +84,4 @@ class ITLearning(models.Model):
     CNlearning = models.CharField(max_length=255)
     
     def __str__(self):
-        return self.major
+        return self.learning
